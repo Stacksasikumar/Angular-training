@@ -1,0 +1,54 @@
+<header>
+    <img src="assets/images/chart.gif" id="logo" />
+    <h1><a href="index.html">Skillsoft Weight Tracker</a></h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="enterweight.html">enter weight</a></li>
+        <li><a href="myweights.html">my weight</a></li>
+        <li><a href="teamweights.html">team weights</a></li>
+    </ul>
+</nav>
+<div id="container">
+    <main>
+        <div class="container">
+            <h2 class="pb-2">Register Form</h2>
+        <form [formGroup]="frmRegister" (ngSubmit)="onsubmit()">
+            <div class="form-group">
+                <label for="username">User name</label>
+                <input type="text" class="form-control" id="username"
+                 formControlName="username">      
+                 <span *ngIf="frmRegister.controls['username'].errors"> enter the username</span>   
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password"
+                formControlName="password">
+                <span *ngIf="frmRegister.controls['password'].errors">enter the password </span> 
+            </div>
+            <button type="submit" class="btn btn-primary" 
+            [disabled]="!frmRegister.valid">Submit</button>
+            </form> 
+        </div>
+    </main>
+    <aside>
+        <section>
+            <h4>Health News</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore   et dolore magna aliqua.
+            </p>
+        </section>
+        <section>
+            <h4>Healthy Recipes</h4>
+            <a href="">grilled chicken</a>
+            <a href="">minced beef patties</a>
+            <a href="">potato pancakes</a>
+            <a href="">fish stew</a>
+        </section>
+    </aside>
+</div>
+<footer>
+    <hr />
+    Copyright &copy; 2022. All rights reserved
+</footer>
