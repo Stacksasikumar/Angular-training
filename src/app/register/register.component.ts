@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup,FormControl ,Validators} from "@angular/forms";
 
@@ -7,13 +8,14 @@ import { FormGroup,FormControl ,Validators} from "@angular/forms";
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent   {
 
   frmRegister: FormGroup;
 
-  constructor(){
+  constructor(private http:HttpClient){
     this.frmRegister= this.createFormGroup();
   }
+
 
   createFormGroup(){
     return new FormGroup({
@@ -24,7 +26,12 @@ export class RegisterComponent {
   };
 
   onsubmit(){
-    console.log(this.frmRegister.value);
+    //console.log(this.frmRegister.value);
+    this.http.post(
+      'http://localhost:3000/employees', 
+      this.frmRegister.value
+    ).subscribe(data => console.log(data));
+
   }
 
 }
